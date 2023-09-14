@@ -1,0 +1,6 @@
+[submodule "rpg-log"]
+	path = rpg-log
+	url = https://github.com/volneineves/avanade-spring-rpg-history.git
+[submodule "rpg-game"]
+	path = rpg-game
+	url = https://github.com/volneineves/avanade-spring-rpg.git
