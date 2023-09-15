@@ -35,7 +35,8 @@ Junte-se à batalha épica estilo Advanced Dungeons & Dragons (AD&D)! Este proje
     ```bash
     docker-compose up
     ```
-4. Aguarde de 30 à 60 segundos à depender de sua internet e seu computador para os serviços carregarem e acesse os [Swagger Api Game](http://localhost:8080/swagger-ui/) ou [Swagger Api Log](http://localhost:8081/swagger-ui/)
+4. Aguarde de 30 à 60 segundos à depender de sua internet e seu computador para os serviços carregarem e acesse os [Swagger Api Game](http://localhost:8080/swagger-ui/index.html) ou [Swagger Api Log](http://localhost:8081/swagger-ui/index.html)
+5. Caso docker-compose apresente erro, você pode rodar as aplicações em sua IDE preferida, sendo necessário somente que inicie um serviço com rabbitmt na porta 5672 e uma tabela rpg com schemmas game e log na porta 5432.
 
 A API Game rodará na porta 8080 e a API Log na porta 8081.
 
@@ -102,7 +103,7 @@ As anotações `@Cacheable` e `@CacheEvict` do Spring Framework são usadas para
 
 - **@CacheEvict**: Os métodos `create(@RequestBody @Valid CharacterRequest request)`, `update(@PathVariable UUID id, @RequestBody CharacterRequest updatedCharacter)` e `delete(@PathVariable UUID id)` estão anotados com `@CacheEvict`. Essa anotação garante que o cache será invalidado quando um novo personagem for criado, atualizado ou excluído, garantindo assim que os dados em cache permaneçam atualizados.
 
-Para mais informações sobre os endpoints, consulte a [Documentação Swagger](http://localhost:8080/swagger-ui/).
+Para mais informações sobre os endpoints, consulte a [Documentação Swagger](http://localhost:8080/swagger-ui/index.html).
 
 ### API Log:
 
@@ -123,7 +124,7 @@ A API Log inclui um `HistoryListener` que fica à escuta de mensagens provenient
 * `GET /history-battles`: Retorna uma lista de todas as batalhas registradas.
 * `GET /history-battles/{id}`: Retorna os detalhes de uma batalha específica pelo ID.
 
-Para mais informações sobre os endpoints, consulte a [Documentação Swagger](http://localhost:8081/swagger-ui/).
+Para mais informações sobre os endpoints, consulte a [Documentação Swagger](http://localhost:8081/swagger-ui/index.html).
 
 #### Proposta
 
