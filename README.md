@@ -48,17 +48,6 @@ A API Game rodará na porta 8080 e a API Log na porta 8081.
 
 A API Game é o coração do nosso RPG, responsável por todas as mecânicas e lógicas de jogo. Ela fornece um conjunto abrangente de operações CRUD para gerenciar personagens, além de lidar com toda a dinâmica das batalhas e seus respectivos turnos.
 
-## ✨ Tecnologias Utilizadas
-
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [Java 17](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html): Linguagem de programação utilizada.
-- [Spring Boot](https://spring.io/projects/spring-boot): Framework para facilitar o bootstrapping e o desenvolvimento de novas aplicações Spring.
-    - [Spring Data JPA](https://spring.io/projects/spring-data-jpa): Para persistência de dados e manipulação do banco de dados.
-    - [Spring Boot Starter Security](https://spring.io/guides/gs/securing-web/): Para funcionalidades relacionadas à segurança, como autenticação e autorização.
-    - [Spring Boot Starter Validation](https://spring.io/guides/gs/validating-form-input/): Para validação de dados em formulários e outras entradas.
-
-
 ##### Engine de Batalha:
 
 A API Game RPG tem uma implementação mais complexa, focada na simulação de batalhas e gerenciamento de personagens e turnos.
@@ -125,6 +114,40 @@ A API Log inclui um `HistoryListener` que fica à escuta de mensagens provenient
 * `GET /history-battles/{id}`: Retorna os detalhes de uma batalha específica pelo ID.
 
 Para mais informações sobre os endpoints, consulte a [Documentação Swagger](http://localhost:8081/swagger-ui/index.html).
+
+## ✨ Tecnologias Utilizadas
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+### Dependências do Spring Boot
+- **[spring-boot-starter-data-jpa](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa)**: Para persistência e manipulação de dados usando JPA.
+- **[spring-boot-starter-validation](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation)**: Para validação de entrada de dados.
+- **[spring-boot-starter-web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)**: Para construção de aplicações web, incluindo serviços RESTful.
+
+### Banco de Dados
+- **[postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql)**: Driver JDBC do PostgreSQL para conectividade com o banco de dados (Escopo de execução).
+
+### Testes
+- **[spring-boot-starter-test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test)**: Para escrita de casos de teste (Escopo de teste).
+- **[spring-boot-testcontainers](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-testcontainers)**: Para contêineres de teste no Spring Boot (Escopo de teste).
+- **[junit-jupiter](https://mvnrepository.com/artifact/org.testcontainers/junit-jupiter)**: API JUnit Jupiter para testes (Escopo de teste).
+- **[postgresql](https://mvnrepository.com/artifact/org.testcontainers/postgresql)**: Contêiner PostgreSQL para testes (Escopo de teste).
+
+### Documentação de API
+- **[springdoc-openapi-starter-webmvc-ui](https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui)**: Para documentação OpenAPI (versão 2.2.0).
+
+### Cache
+- **[spring-boot-starter-cache](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache)**: Para suporte a cache (versão 3.1.3).
+
+### Mensageria
+- **[spring-boot-starter-amqp](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp)**: Para trabalhar com sistemas de mensagens como RabbitMQ.
+
+### Query DSL
+- **[querydsl-apt](https://mvnrepository.com/artifact/com.querydsl/querydsl-apt)**: Ferramenta de Processamento de Anotações para Querydsl (versão 5.0.0, Jakarta, Escopo fornecido).
+- **[querydsl-jpa](https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa)**: Para suporte ao Querydsl JPA (versão 5.0.0, Jakarta).
+
+### Serialização
+- **[gson](https://mvnrepository.com/artifact/com.google.code.gson/gson)**: Biblioteca JSON do Google para serialização e desserialização (versão 2.10.1).
 
 #### Proposta
 
