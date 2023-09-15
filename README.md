@@ -35,6 +35,7 @@ Junte-se à batalha épica estilo Advanced Dungeons & Dragons (AD&D)! Este proje
     ```bash
     docker-compose up
     ```
+4. Aguarde de 30 à 60 segundos à depender de sua internet e seu computador para os serviços carregarem e acesse os [Swagger Api Game](http://localhost:8080/swagger-ui/) ou [Swagger Api Log](http://localhost:8081/swagger-ui/)
 
 A API Game rodará na porta 8080 e a API Log na porta 8081.
 

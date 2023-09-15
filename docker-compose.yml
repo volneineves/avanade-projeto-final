@@ -43,6 +43,7 @@ services:
       - "8080:8080"
     networks:
       - rpg
+    restart: on-failure
 
   log:
     build: ./rpg-log
@@ -59,6 +60,7 @@ services:
       - "8081:8081"
     networks:
       - rpg
+    restart: on-failure
 
 volumes:
   data:
