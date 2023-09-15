@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.10-management
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rpg
+
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: rpg
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    networks:
+      - rpg
+
+  game:
+    build: ./rpg-game
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      DATABASE_URL: postgres:5432/rpg
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: admin
+      RABBIT_URL: rabbitmq
+      RABBIT_PORT: 5672
+    ports:
+      - "8080:8080"
+    networks:
+      - rpg
+
+  log:
+    build: ./rpg-log
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      DATABASE_URL: postgres:5432/rpg
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: admin
+      RABBIT_URL: rabbitmq
+      RABBIT_PORT: 5672
+    ports:
+      - "8081:8081"
+    networks:
+      - rpg
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  rpg:
+    driver: bridge
